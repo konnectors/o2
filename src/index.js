@@ -18,7 +18,7 @@ const request = requestFactory({
   jar: true
 })
 
-const format = require('date-fns/format')
+const { format } = require('date-fns')
 const pdfjs = require('pdfjs-dist/es5/build/pdf.js')
 const stream = require('stream')
 const bluebird = require('bluebird')
