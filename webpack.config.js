@@ -28,7 +28,9 @@ try {
 const appIconRX = iconName && new RegExp(`[^/]*/${iconName}`)
 
 module.exports = {
-  entry,
+  entry: {  main: entry,
+            "pdf.worker": "pdfjs-dist/build/pdf.worker.entry",
+         },
   target: 'node',
   mode: 'none',
   output: {
