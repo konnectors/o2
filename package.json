@@ -39,7 +39,7 @@
   "dependencies": {
     "cozy-konnector-libs": "4.51.0",
     "date-fns": "2.28.0",
-    "pdfjs-dist": "2.12.313"
+    "pdfjs-dist": "2.13.216"
   },
   "devDependencies": {
     "cozy-jobs-cli": "1.17.4",
