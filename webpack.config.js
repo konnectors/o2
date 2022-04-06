@@ -38,13 +38,13 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [
+        { from: './node_modules/pdfjs-dist/build/pdf.worker.js' },
         { from: 'manifest.konnector' },
         { from: 'package.json' },
         { from: 'README.md' },
         { from: 'assets', transform: optimizeSVGIcon },
         { from: '.travis.yml' },
-        { from: 'LICENSE' },
-        { from: 'node_modules/pdfjs-dist/build/pdf.worker.js' }
+        { from: 'LICENSE' }
       ]
     }),
     new webpack.DefinePlugin({
@@ -57,6 +57,9 @@ module.exports = {
     // Critical dependency: the request of a dependency is an expression
     // Since we cannot change this dependency. I think it won't hide more important messages
     exprContextCritical: false
+  },
+  externals: {
+    canvas: 'commonjs canvas'
   }
 }
 

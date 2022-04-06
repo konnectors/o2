@@ -19,7 +19,7 @@ const request = requestFactory({
 })
 
 const { format } = require('date-fns')
-const pdfjs = require('pdfjs-dist/es5/build/pdf.js')
+const pdfjs = require('pdfjs-dist/legacy/build/pdf')
 const stream = require('stream')
 const bluebird = require('bluebird')
 
@@ -38,9 +38,7 @@ async function start(fields) {
 async function handleBills(fields) {
   let $ = await request(`${baseUrl}/factures/`)
 
-  const agencyId = $('#agence_id')
-    .text()
-    .trim()
+  const agencyId = $('#agence_id').text().trim()
 
   const years = Array.from($('.year_invoice option')).map(option =>
     $(option).val()
@@ -176,7 +174,7 @@ async function getAmountInPdf(pdfBuffer, date) {
 }
 
 async function authenticate(username, password) {
-  //const request = requestFactory({ cheerio: false })
+  // const request = requestFactory({ cheerio: false })
   const result = await request({
     url: `${baseUrl}/wp-admin/admin-ajax.php`,
     method: 'POST',
